@@ -21,5 +21,11 @@ servidor.delete('/comidas/:id', (request, response) => {
   response.sendStatus(204)
 })
 
-servidor.listen(3000)
-console.log("servidorzinho rodando na porta 3000")
+servidor.patch('/comidas/:id', (request, response) => {
+  const id = request.params.id
+  controller.update(id, request.body)
+  response.sendStatus(204)
+})
+
+servidor.listen(5000)
+console.log("servidorzinho rodando na porta 5000")
