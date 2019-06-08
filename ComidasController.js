@@ -23,14 +23,21 @@ const update = (id, comida) => {
 
   if (comidacadastrada.nome === undefined) { // nao encontrou a comida
     return false
-  }
+  } else {
 
-  if (comida.nome !== undefined) {
+ /*  if (comida.nome !== undefined) {
     comidaCadastrada.nome = comida.nome
   }
   if (comida.descricao !== undefined) {
     comidaCadastrada.descricao = comida.descricao
+  } */
+
+  const comidaAtualizada = {
+    ...comidaCadastrada, // spread operator do ES6 // o que já estava lá
+    ...comida // o parametro obs: o valor mais atual é o que está em ultima posicao, neste caso é '...comida'
   }
+
+
   return true
 }
 
