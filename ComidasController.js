@@ -20,17 +20,23 @@ const update = (id, comida) => {
   let comidaCadastrada = getAll().find(comida => {
     return comida.id == id
   })
-  if(comida.nome !== undefined) {
-  comidaCadastrada.nome = comida.nome
+
+  if (comidacadastrada.nome === undefined) { // nao encontrou a comida
+    return false
   }
-  if(comida.descricao !== undefined) {
-  comidaCadastrada.descricao = comida.descricao
+
+  if (comida.nome !== undefined) {
+    comidaCadastrada.nome = comida.nome
   }
+  if (comida.descricao !== undefined) {
+    comidaCadastrada.descricao = comida.descricao
+  }
+  return true
 }
 
 module.exports = {
   getAll,
   add,
-  remove, 
+  remove,
   update
 }

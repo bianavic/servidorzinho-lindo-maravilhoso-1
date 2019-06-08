@@ -12,7 +12,7 @@ servidor.get('/comidas', (request, response) => {
 })
 
 servidor.post('/comidas', (request, response) => {
-  const novaComida = controller.add(request.body)
+const novaComida = controller.add(request.body)
   response.status(200).send(novaComida)
 })
 
@@ -22,9 +22,13 @@ servidor.delete('/comidas/:id', (request, response) => {
 })
 
 servidor.patch('/comidas/:id', (request, response) => {
-  const id = request.params.id
-  controller.update(id, request.body)
-  response.sendStatus(204)
+const id = request.params.id
+const sucesso = controller.update(id, request.body)
+  if (sucesso) {
+    response.sendStatus(204)
+    } else {
+      response.status(404)
+    }
 })
 
 servidor.listen(5000)
