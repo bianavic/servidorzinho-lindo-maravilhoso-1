@@ -1,6 +1,9 @@
-const { comidas } = require('./ComidasRepository')
+const { connect } = require('./ComidasRepository')
+connect()
 
 const getAll = () => {
+  // pegue todas as comidas do mongodb usando mongoose
+  // nome da collection: comidas
   return comidas.pratosFavoritos
 }
 
