@@ -31,5 +31,10 @@ const sucesso = controller.update(id, request.body)
     }
 })
 
+servidor.get('comidas/:id', (request, response) => {
+  const id = request.params.id
+  response.send(controller.getById(id))
+})
+
 servidor.listen(5000)
 console.log("servidorzinho rodando na porta 5000")

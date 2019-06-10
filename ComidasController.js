@@ -4,6 +4,13 @@ const getAll = () => {
   return comidas.pratosFavoritos
 }
 
+const getById = () => {
+  const comidaCadastrada = getAll().find(comida => {
+    return comida.id === id
+  })
+  return comidaCadastrada
+}
+
 const add = (comida) => {
   comida.id = Math.random().toString(36).substr(-8)
   getAll().push(comida)
@@ -18,32 +25,28 @@ const remove = (id) => {
 
 const update = (id, comida) => {
   let comidaCadastrada = getAll().find(comida => {
-    return comida.id == id
+    return comida.id === id
   })
 
-  if (comidacadastrada.nome === undefined) { // nao encontrou a comida
+  if(comidaCadastrada === undefined){ // nao encontrou a comida
     return false
-  } else {
-
- /*  if (comida.nome !== undefined) {
-    comidaCadastrada.nome = comida.nome
   }
-  if (comida.descricao !== undefined) {
-    comidaCadastrada.descricao = comida.descricao
-  } */
+  else {
+    if(comida.nome !== undefined) {
+      comidaCadastrada.nome = comida.nome
+    }
+    if(comida.descricao !== undefined) {
+      comidaCadastrada.descricao = comida.descricao
+    }
 
-  const comidaAtualizada = {
-    ...comidaCadastrada, // spread operator do ES6 // o que já estava lá
-    ...comida // o parametro obs: o valor mais atual é o que está em ultima posicao, neste caso é '...comida'
+    return true
   }
-
-
-  return true
 }
 
 module.exports = {
   getAll,
   add,
   remove,
-  update
+  update,
+  getById
 }
