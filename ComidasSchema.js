@@ -9,4 +9,5 @@ const ComidasSchema = new Schema({
 })
 
 const comidas = mongoose.model("comidas", ComidasSchema);
-modules.export = comidas;
+
+module.export = comidas;

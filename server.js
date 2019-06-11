@@ -7,13 +7,12 @@ const servidor = express()
 servidor.use(cors())
 servidor.use(bodyParser.json())
 
-servidor.get('/comidas', (request, response) => {
+servidor.get('/comidas', async (request, response) => {
   response.send(controller.getAll())
 })
 
 servidor.post('/comidas', (request, response) => {
-const novaComida = controller.add(request.body)
-  response.status(200).send(novaComida)
+  response.status(200).send(controller.add(request.body))
 })
 
 servidor.delete('/comidas/:id', (request, response) => {

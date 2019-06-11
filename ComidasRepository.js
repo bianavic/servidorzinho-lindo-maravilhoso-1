@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 //mongodb://dominio:porta/nome_database
-const MONGO_URL = "mongodb:localhost:27017/reprograma"
+const MONGO_URL = "mongodb://localhost:27017/reprograma"
 
 function connect () {
   //TODO: conectar no nosso mongo usando o MONGO_URL
@@ -13,7 +13,7 @@ function connect () {
         console.log("conectamos no mongo!!!")
       }
     }
-    );
+    )
 }
 
 module.exports = { connect }
