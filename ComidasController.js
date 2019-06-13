@@ -14,7 +14,7 @@ const getById = (id) => {
 }
 
 
-const add = async (comida) => {
+const add = (comida) => {
   const novaComida = new comidasModel(comida)
   return novaComida.save()
 }
