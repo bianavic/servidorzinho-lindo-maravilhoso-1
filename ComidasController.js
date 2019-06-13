@@ -9,14 +9,10 @@ const getAll = async () => {
   })
 }
 
-const getById = async (id) => {
-  return comidasModel.findById(
-    id,
-    (error, comida) => {
-      return comida
-    }
-  ) 
+const getById = (id) => {
+  return comidasModel.findById(id) 
 }
+
 
 const add = async (comida) => {
   const novaComida = new comidasModel(comida)
