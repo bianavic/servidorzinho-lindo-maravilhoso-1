@@ -24,16 +24,12 @@ const remove = async (id) => {
   return comidasModel.findByIdAndDelete(id)
 }
 
-const update = async (id, comida) => {
+const update = (id, comida) => {
   return comidasModel.findByIdAndUpdate(
     id,
     { $set: comida },
     { new: true }, // RETORNAR A COMIDA JA ATUALIZADA NO CALLBACK
-    function (error, comida) { // é o nosso callback
-      return comida
-    }
   )
-
 }
 
 module.exports = {
