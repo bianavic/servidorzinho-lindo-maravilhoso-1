@@ -6,7 +6,7 @@ const ComidasSchema = new Schema({
     _id: { type: mongoose.Schema.Types.ObjectId, auto: true },
     nome: { type: String, required: true },
     descricao: { type: String }, // required fica opcional
-    imagem: { type: String}
+    imagem: { type: String, required: true }
 })
 
 const comidasModel = mongoose.model("comidas", ComidasSchema);

@@ -20,7 +20,7 @@ const add = (comida) => {
 }
 
 
-const remove = async (id) => {
+const remove = (id) => {
   return comidasModel.findByIdAndDelete(id)
 }
 
